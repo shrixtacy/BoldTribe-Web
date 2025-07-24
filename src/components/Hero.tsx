@@ -4,58 +4,52 @@ import AnimatedSection from './AnimatedSection';
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen bg-white dark:bg-[#1e1e1e] overflow-hidden diagonal-lines transition-colors duration-300">
-      {/* Red Corner Design Elements */}
+    <section className="relative min-h-screen bg-gradient-to-br from-red-500 via-red-600 to-red-700 overflow-hidden">
+      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Top Right Corner Design */}
-        <div className="absolute top-0 right-0 w-96 h-96 sm:w-[500px] sm:h-[500px]">
-          <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-bl from-red-500/40 via-red-600/25 to-transparent rounded-bl-full"></div>
-          <div className="absolute top-4 right-4 w-20 h-20 bg-red-500 rounded-full"></div>
-          <div className="absolute top-12 right-32 w-12 h-12 bg-red-600 rounded-full"></div>
-          <div className="absolute top-24 right-16 w-8 h-8 bg-red-400 rounded-full"></div>
-        </div>
-        
-        {/* Bottom Left Corner Design */}
-        <div className="absolute bottom-0 left-0 w-80 h-80 sm:w-96 sm:h-96">
-          <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-red-500/35 via-red-600/20 to-transparent rounded-tr-full"></div>
-          <div className="absolute bottom-4 left-4 w-16 h-16 bg-red-500 rounded-full"></div>
-          <div className="absolute bottom-16 left-24 w-10 h-10 bg-red-600 rounded-full"></div>
-          <div className="absolute bottom-8 left-32 w-6 h-6 bg-red-400 rounded-full"></div>
-        </div>
+        {/* Floating Orbs */}
+        <div className="absolute top-20 right-20 w-64 h-64 sm:w-96 sm:h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-20 left-20 w-48 h-48 sm:w-80 sm:h-80 bg-white/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 sm:w-[600px] sm:h-[600px] bg-white/5 rounded-full blur-3xl animate-pulse delay-500"></div>
         
         {/* Floating Icons */}
         <div className="absolute top-1/4 left-1/4 animate-float">
-          <Sparkles className="w-8 h-8 text-red-500/30 dark:text-red-400/30" />
+          <Sparkles className="w-8 h-8 text-white/20" />
         </div>
         <div className="absolute top-3/4 right-1/3 animate-float" style={{ animationDelay: '1s' }}>
-          <Zap className="w-6 h-6 text-red-600/25 dark:text-red-500/25" />
+          <Zap className="w-6 h-6 text-white/15" />
         </div>
         <div className="absolute bottom-1/3 left-1/2 animate-float" style={{ animationDelay: '2s' }}>
-          <Star className="w-10 h-10 text-red-400/20 dark:text-red-300/20" />
+          <Star className="w-10 h-10 text-white/10" />
+        </div>
+        
+        {/* Grid Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="grid-pattern w-full h-full"></div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 pt-24 sm:pt-32 pb-16 sm:pb-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center min-h-[calc(100vh-8rem)]">
           {/* Left Column - Text Content */}
-          <AnimatedSection animation="fadeUp" className="space-y-6 sm:space-y-8 lg:space-y-10 text-gray-900 dark:text-white text-center lg:text-left transition-colors duration-300">
+          <AnimatedSection animation="fadeUp" className="space-y-6 sm:space-y-8 lg:space-y-10 text-white text-center lg:text-left">
             {/* Badge */}
             <AnimatedSection animation="fadeUp" delay={100}>
-              <div className="inline-flex items-center gap-3 bg-red-50 dark:bg-red-900/20 backdrop-blur-sm rounded-full px-6 py-3 mb-4 border border-red-200 dark:border-red-800/30 transition-colors duration-300">
+              <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3 mb-4 border border-white/20">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-red-700 dark:text-red-300 font-medium text-sm transition-colors duration-300">Available for new projects</span>
+                <span className="text-white/90 font-medium text-sm">Available for new projects</span>
               </div>
             </AnimatedSection>
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight">
               <span className="block">We design and build</span>
-              <span className="block bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
+              <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                 solutions that work
               </span>
             </h1>
             
             <AnimatedSection animation="fadeUp" delay={200}>
-              <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 transition-colors duration-300">
+              <p className="text-lg sm:text-xl lg:text-2xl text-red-100 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 BoldTribe crafts futuristic digital experiences that transform visions into reality through strategy, design, and cutting-edge code.
               </p>
             </AnimatedSection>
@@ -64,16 +58,16 @@ const Hero = () => {
             <AnimatedSection animation="fadeUp" delay={300}>
               <div className="flex flex-wrap justify-center lg:justify-start gap-6 sm:gap-8 py-4">
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white transition-colors duration-300">50+</div>
-                  <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Projects</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">50+</div>
+                  <div className="text-red-100 text-sm">Projects</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white transition-colors duration-300">30+</div>
-                  <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Clients</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">30+</div>
+                  <div className="text-red-100 text-sm">Clients</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white transition-colors duration-300">100%</div>
-                  <div className="text-gray-600 dark:text-gray-300 text-sm transition-colors duration-300">Success</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-white">100%</div>
+                  <div className="text-red-100 text-sm">Success</div>
                 </div>
               </div>
             </AnimatedSection>
@@ -85,7 +79,7 @@ const Hero = () => {
                   <span className="relative z-10">Start Your Project</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-red-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </button>
-                <button className="group border-2 border-red-200 dark:border-red-800/30 text-red-600 dark:text-red-400 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg lg:text-xl hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm">
+                <button className="group border-2 border-white/30 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg lg:text-xl hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm">
                   <Play className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
                   View Our Work
                 </button>
@@ -94,7 +88,7 @@ const Hero = () => {
             
             {/* Trust Indicators */}
             <AnimatedSection animation="fadeUp" delay={500}>
-              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6 pt-6 text-gray-600 dark:text-gray-300 transition-colors duration-300">
+              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6 pt-6 text-red-100">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 bg-green-400 rounded-full"></div>
                   <span className="text-sm">Free Consultation</span>
@@ -171,9 +165,9 @@ const Hero = () => {
         {/* Scroll Indicator */}
         <AnimatedSection animation="fadeIn" delay={1000} className="flex justify-center mt-12 sm:mt-16 lg:mt-20">
           <div className="flex flex-col items-center gap-2 animate-bounce">
-            <span className="text-gray-500 dark:text-gray-400 text-sm font-medium transition-colors duration-300">Scroll to explore</span>
-            <div className="w-6 h-10 border-2 border-red-300 dark:border-red-700 rounded-full flex justify-center transition-colors duration-300">
-              <div className="w-1 h-3 bg-red-500 dark:bg-red-400 rounded-full mt-2 animate-pulse transition-colors duration-300"></div>
+            <span className="text-white/60 text-sm font-medium">Scroll to explore</span>
+            <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+              <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
             </div>
           </div>
         </AnimatedSection>
