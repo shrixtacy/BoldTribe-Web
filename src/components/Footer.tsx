@@ -47,7 +47,7 @@ const Footer = () => {
             <p className="text-gray-300 dark:text-gray-400 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base transition-colors duration-300">
               Crafting futuristic digital experiences that transform visions into reality.
             </p>
-            
+
             {/* Social Links */}
             <div className="flex space-x-2 sm:space-x-3 justify-center sm:justify-start">
               {socialLinks.map((social, index) => (

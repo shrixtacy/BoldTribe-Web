@@ -714,6 +714,40 @@ html {
   overflow: hidden;
 }
 
+/* Bento-style card enhancements */
+.bento-card {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.bento-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.1);
+}
+
+.dark .bento-card:hover {
+  box-shadow: 0 20px 40px rgba(220, 38, 38, 0.2);
+}
+
+/* Smooth image transitions */
+.bento-image {
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-card:hover .bento-image {
+  transform: scale(1.05);
+}
+
+/* Tag styling */
+.bento-tag {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bento-tag:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 /* Enhanced card hover effects */
 .card-hover-lift {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);

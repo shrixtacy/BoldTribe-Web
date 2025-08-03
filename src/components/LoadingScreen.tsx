@@ -25,7 +25,7 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className={`fixed inset-0 z-50 bg-gradient-to-br from-red-500 via-red-600 to-red-700 flex items-center justify-center transition-all duration-1000 ${
+    <div className={`fixed inset-0 z-60 bg-gradient-to-br from-red-500 via-red-600 to-red-700 flex items-center justify-center transition-all duration-1000 ${
       isComplete ? 'opacity-0 pointer-events-none' : 'opacity-100'
     }`}>
       <div className="text-center text-white">
