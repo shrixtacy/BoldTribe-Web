@@ -1,4 +1,3 @@
-import React from 'react';
 import { ArrowDown, Play, Sparkles, Zap, Star } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
 
@@ -11,7 +10,7 @@ const Hero = () => {
         <div className="absolute top-20 right-20 w-64 h-64 sm:w-96 sm:h-96 bg-white/10 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-20 left-20 w-48 h-48 sm:w-80 sm:h-80 bg-white/15 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 sm:w-[600px] sm:h-[600px] bg-white/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-        
+
         {/* Floating Icons */}
         <div className="absolute top-1/4 left-1/4 animate-float">
           <Sparkles className="w-8 h-8 text-white/20" />
@@ -22,7 +21,7 @@ const Hero = () => {
         <div className="absolute bottom-1/3 left-1/2 animate-float" style={{ animationDelay: '2s' }}>
           <Star className="w-10 h-10 text-white/10" />
         </div>
-        
+
         {/* Grid Pattern Overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="grid-pattern w-full h-full"></div>
@@ -40,14 +39,14 @@ const Hero = () => {
                 <span className="text-white/90 font-medium text-sm">Available for new projects</span>
               </div>
             </AnimatedSection>
-            
+
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-bold leading-tight">
               <span className="block">We design and build</span>
               <span className="block bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent">
                 solutions that work
               </span>
             </h1>
-            
+
             <AnimatedSection animation="fadeUp" delay={200}>
               <p className="text-lg sm:text-xl lg:text-2xl text-red-100 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 BoldTribe crafts futuristic digital experiences that transform visions into reality through strategy, design, and cutting-edge code.
@@ -85,7 +84,7 @@ const Hero = () => {
                 </button>
               </div>
             </AnimatedSection>
-            
+
             {/* Trust Indicators */}
             <AnimatedSection animation="fadeUp" delay={500}>
               <div className="flex flex-wrap justify-center lg:justify-start items-center gap-4 sm:gap-6 pt-6 text-red-100">
@@ -154,7 +153,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Floating Achievement Badge */}
             <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg animate-bounce">
               <Star className="w-6 h-6 text-yellow-500 fill-current" />

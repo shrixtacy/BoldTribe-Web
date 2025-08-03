@@ -41,7 +41,7 @@ const ContactPage = () => {
       icon: MapPin,
       title: 'Visit Us',
       subtitle: 'Come say hello at our office',
-      value: 'San Francisco, CA',
+      value: '630, DLF Cyber City, Patia, Bhubaneswar',
       href: '#',
       color: 'from-purple-500 to-purple-600'
     }

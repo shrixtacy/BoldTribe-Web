@@ -331,7 +331,7 @@ const GalleryPage = () => {
 
       {/* Lightbox Modal */}
       {selectedPhoto && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 bg-black/95 z-30 flex items-center justify-center p-4">
           <div className="relative max-w-6xl w-full max-h-full">
             {/* Close Button */}
             <button

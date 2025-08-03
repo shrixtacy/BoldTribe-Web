@@ -27,7 +27,7 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
+    <nav className={`fixed w-full z-40 transition-all duration-500 ease-in-out ${
       isScrolled 
         ? 'px-4 sm:px-6 py-3' 
         : 'px-0 py-0'
