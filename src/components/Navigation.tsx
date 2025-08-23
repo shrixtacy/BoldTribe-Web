@@ -27,32 +27,32 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className={`fixed w-full z-40 transition-all duration-500 ease-in-out ${
+    <nav className={`fixed w-full z-40 transition-all duration-900 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-auto ${
       isScrolled 
         ? 'px-4 sm:px-6 py-3' 
         : 'px-0 py-0'
     }`}>
-      <div className={`transition-all duration-500 ease-in-out ${
+      <div className={`transition-all duration-900 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-auto ${
         isScrolled 
           ? 'container mx-auto max-w-6xl' 
           : 'w-full'
       }`}>
-        <div className={`transition-all duration-500 ease-in-out ${
+        <div className={`transition-all duration-900 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-auto ${
           isScrolled 
-            ? 'bg-white/95 dark:bg-[#1e1e1e]/95 backdrop-blur-xl rounded-full px-4 sm:px-8 py-3 sm:py-4 shadow-2xl border border-white/40 dark:border-gray-600/40 mx-auto transform scale-95' 
-            : 'bg-gradient-to-r from-red-500 via-red-600 to-red-700 px-4 sm:px-8 py-4 sm:py-6 shadow-lg'
+            ? 'bg-white/95 dark:bg-[#1e1e1e]/95 backdrop-blur-xl rounded-full px-4 sm:px-8 py-3 sm:py-4 shadow-2xl border border-white/40 dark:border-gray-600/40 mx-auto transform scale-95 opacity-95' 
+            : 'bg-gradient-to-r from-red-500 via-red-600 to-red-700 px-4 sm:px-8 py-4 sm:py-6 shadow-lg opacity-100 scale-100'
         }`}>
           <div className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center space-x-2">
-              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-300 ${
+              <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-all duration-900 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-auto ${
                 isScrolled 
                   ? 'bg-gradient-to-br from-red-500 to-red-600' 
                   : 'bg-white/20 backdrop-blur-sm'
               }`}>
-                <span className="text-white font-bold text-lg sm:text-xl">B</span>
+                <span className="text-white font-bold text-lg sm:text-xl transition-colors duration-900 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-auto">B</span>
               </div>
-              <h1 className={`text-lg sm:text-xl lg:text-2xl font-bold transition-colors duration-300 ${
+              <h1 className={`text-lg sm:text-xl lg:text-2xl font-bold transition-colors duration-900 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-auto ${
                 isScrolled ? 'text-gray-900 dark:text-gray-100' : 'text-white'
               }`}>
                 BoldTribe
