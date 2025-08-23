@@ -104,33 +104,19 @@ const Hero = () => {
             </AnimatedSection>
           </AnimatedSection>
 
-          {/* Right Column - Visual Cards */}
-          <AnimatedSection animation="slideLeft" delay={600} className="space-y-6 sm:space-y-8 order-first lg:order-last">
-            {/* Main Card */}
-            <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl transform rotate-1 sm:rotate-2 hover:rotate-0 transition-all duration-500 hover:shadow-3xl border border-white/20">
-              <div className="flex items-center gap-4 sm:gap-6 mb-6 sm:mb-8">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg">
-                  <span className="text-white font-bold text-2xl sm:text-3xl">B</span>
-                </div>
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold text-gray-900">BoldTribe</h3>
-                  <p className="text-red-600 text-base sm:text-lg font-semibold">Digital Innovation</p>
-                </div>
-              </div>
-              <div className="h-40 sm:h-48 lg:h-56 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 rounded-xl sm:rounded-2xl flex items-center justify-center relative overflow-hidden">
-                {/* Animated Background Pattern */}
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute top-4 left-4 w-8 h-8 bg-red-200 rounded-full animate-pulse"></div>
-                  <div className="absolute bottom-4 right-4 w-6 h-6 bg-orange-200 rounded-full animate-pulse delay-500"></div>
-                  <div className="absolute top-1/2 right-8 w-4 h-4 bg-yellow-200 rounded-full animate-pulse delay-1000"></div>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-gradient-to-br from-red-500 to-red-600 rounded-full mx-auto mb-4 sm:mb-6 flex items-center justify-center shadow-xl animate-pulse">
-                    <span className="text-white font-bold text-2xl sm:text-3xl">✨</span>
-                  </div>
-                  <p className="text-gray-800 font-bold text-base sm:text-lg">Crafting Digital Excellence</p>
-                  <p className="text-gray-600 text-sm mt-2">Since 2019</p>
-                </div>
+          {/* Right Column - Centered GIF */}
+          <AnimatedSection animation="slideLeft" delay={600} className="order-first lg:order-last">
+            {/* Main Card with Centered GIF */}
+            <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl transform rotate-1 sm:rotate-2 hover:rotate-0 transition-all duration-500 hover:shadow-3xl border border-white/20">
+              <div className="h-80 sm:h-96 lg:h-[500px] bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 rounded-xl sm:rounded-2xl flex items-center justify-center relative overflow-hidden">
+                {/* Crayon GIF - Centered with equal borders */}
+                <img 
+                  src="img-gif/Crayon.gif" 
+                  alt="Crayon Animation" 
+                  className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
+                />
+                {/* Overlay for better text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl sm:rounded-2xl"></div>
               </div>
             </div>
 
@@ -141,7 +127,7 @@ const Hero = () => {
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                   <span className="text-red-100 text-sm font-medium">ACTIVE PROJECTS</span>
                 </div>
-                <h4 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">50+ Projects Delivered</h4>
+                <h4 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">20+ Projects Delivered</h4>
                 <p className="text-red-100 text-base sm:text-lg">Transforming visions into reality</p>
                 <div className="mt-4 flex items-center gap-2">
                   <div className="flex -space-x-2">
