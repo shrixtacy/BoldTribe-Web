@@ -111,7 +111,7 @@ const Hero = () => {
               <div className="h-80 sm:h-96 lg:h-[500px] bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 rounded-xl sm:rounded-2xl flex items-center justify-center relative overflow-hidden">
                 {/* Crayon GIF - Centered with equal borders */}
                 <img 
-                  src="img-gif/Crayon.gif" 
+                  src="/Crayon.gif" 
                   alt="Crayon Animation" 
                   className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
                 />
