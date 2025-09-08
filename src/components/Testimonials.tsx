@@ -9,28 +9,25 @@ const Testimonials = () => {
 
   const testimonials = [
     {
-      name: 'Robert Johnson',
-      role: 'CEO, TechVision',
-      company: 'TechVision Inc.',
-      content: 'BoldTribe transformed our digital presence with a elegant, modern website that perfectly captures our brand. Their strategic approach and technical expertise have led to a 300% increase in online engagement.',
-      rating: 5,
-      image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150'
+      name: 'Amitab Panda',
+      role: 'Website Owner',
+      company: '',
+      content: "I'm early on in the process of building my website; however, I'm already impressed by customer support's response time. Great customer support ratings is something I consider before purchasing a theme.",
+      rating: 5
     },
     {
-      name: 'Jennifer Lopez',
-      role: 'Founder, GreenTech',
-      company: 'GreenTech Solutions',
-      content: 'They delivered an exceptional sustainability platform that exceeded all our expectations. The innovative AI features and seamless user experience have revolutionized how we track ESG metrics.',
-      rating: 5,
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=150'
+      name: 'Rituparna Mohapatra',
+      role: 'Content Creator',
+      company: '',
+      content: 'Bring your ideas to life with an intuitive visual editor. Create, edit, and customize your site visually and see the changes instantly.',
+      rating: 5
     },
     {
-      name: 'David Smith',
-      role: 'CTO, FinanceFlow',
-      company: 'FinanceFlow Corp',
-      content: 'Working with BoldTribe was a game-changer for our business. Their blockchain expertise and attention to detail resulted in a secure, scalable platform that our users love.',
-      rating: 5,
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150'
+      name: 'Raj Kumar Dash',
+      role: 'Business Owner',
+      company: '',
+      content: 'Incredible theme and fantastic support! Every time I had a question, they got back to you so quickly and fixed your problem! I\'m so impressed! Thank you guys again for your precious help! Your customer support is amazing!',
+      rating: 5
     }
   ];
 
@@ -69,27 +66,24 @@ const Testimonials = () => {
 
                   {/* Content */}
                   <blockquote className="text-lg sm:text-xl lg:text-2xl text-gray-700 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed transition-colors duration-300">
-                    "{testimonials[activeTestimonial].content}"
+                    {testimonials[activeTestimonial].content}
                   </blockquote>
 
                   {/* Author */}
-                  <div className="flex items-center">
-                    <img
-                      src={testimonials[activeTestimonial].image}
-                      alt={testimonials[activeTestimonial].name}
-                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border-4 border-red-100 dark:border-red-900/30 mr-3 sm:mr-4 transition-colors duration-300"
-                    />
-                    <div>
-                      <div className="font-bold text-gray-900 dark:text-gray-100 text-base sm:text-lg transition-colors duration-300">
-                        {testimonials[activeTestimonial].name}
-                      </div>
+                  <div className="flex flex-col">
+                    <div className="font-bold text-gray-900 dark:text-gray-100 text-lg sm:text-xl transition-colors duration-300">
+                      {testimonials[activeTestimonial].name}
+                    </div>
+                    {testimonials[activeTestimonial].role && (
                       <div className="text-gray-600 dark:text-gray-300 text-sm sm:text-base transition-colors duration-300">
                         {testimonials[activeTestimonial].role}
                       </div>
+                    )}
+                    {testimonials[activeTestimonial].company && (
                       <div className="text-red-600 dark:text-red-400 font-medium text-sm sm:text-base transition-colors duration-300">
                         {testimonials[activeTestimonial].company}
                       </div>
-                    </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -98,32 +92,29 @@ const Testimonials = () => {
             {/* Right Side - Testimonial Cards */}
             <div ref={ref} className="space-y-4 sm:space-y-6 order-first lg:order-last">
               {testimonials.map((testimonial, index) => (
-                <div
+                <div 
                   key={index}
                   onClick={() => setActiveTestimonial(index)}
-                  className={`bg-white dark:bg-[#2a2a2a] rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-lg cursor-pointer transition-all duration-500 border-2 ${
-                    activeTestimonial === index
-                      ? 'border-red-500 shadow-xl scale-105'
-                      : 'border-transparent hover:border-red-200 dark:hover:border-red-800 dark:shadow-black/50 transition-colors duration-300'
-                  } ${
-                    visibleItems.has(index) 
-                      ? 'opacity-100 translate-x-0' 
-                      : 'opacity-0 translate-x-4'
-                  }`}
+                  className={`p-4 sm:p-6 rounded-xl sm:rounded-2xl cursor-pointer transition-all duration-300 transform hover:scale-105 ${
+                    activeTestimonial === index 
+                      ? 'bg-gradient-to-br from-red-50 to-white dark:from-red-900/20 dark:to-[#2a2a2a] border-2 border-red-100 dark:border-red-900/30 shadow-lg' 
+                      : 'bg-white/50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 hover:border-red-200 dark:hover:border-red-900/50 hover:shadow-md'
+                  } ${visibleItems.has(index) ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
+                  style={{
+                    transitionDelay: `${index * 100}ms`,
+                    transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
+                  }}
                 >
-                  <div className="flex items-center gap-3 sm:gap-4">
-                    <img
-                      src={testimonial.image}
-                      alt={testimonial.name}
-                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
-                    />
-                    <div className="flex-1">
-                      <div className="font-bold text-gray-900 dark:text-gray-100 text-sm sm:text-base transition-colors duration-300">{testimonial.name}</div>
-                      <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">{testimonial.company}</div>
+                  <div>
+                    <div className="font-semibold text-gray-900 dark:text-gray-100 text-base sm:text-lg transition-colors duration-300">
+                      {testimonial.name}
                     </div>
-                    <div className="flex">
+                    <div className="text-gray-600 dark:text-gray-300 text-sm sm:text-base transition-colors duration-300 mb-2">
+                      {testimonial.role}
+                    </div>
+                    <div className="flex space-x-1">
                       {[...Array(testimonial.rating)].map((_, starIndex) => (
-                        <Star key={starIndex} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current" />
+                        <Star key={starIndex} className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-400 fill-current flex-shrink-0" />
                       ))}
                     </div>
                   </div>

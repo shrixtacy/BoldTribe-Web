@@ -1,5 +1,6 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from 'lucide-react';
+import { Github, Linkedin, Instagram, Facebook, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const aboutLinks = [
@@ -19,13 +20,14 @@ const Footer = () => {
   const contactInfo = [
     { icon: Mail, label: 'support@boldtribe.in', href: 'mailto:support@boldtribe.in' },
     { icon: Phone, label: '+91 76848 36139', href: 'tel:+917684836139' },
-    { icon: MapPin, label: 'San Francisco, CA', href: '#' }
+    { icon: MapPin, label: 'DCB 630, DLF Cybercity, Patia, Bhubaneswar, Odisha 751024', href: '#' }
   ];
 
   const socialLinks = [
-    { icon: Github, href: '#', label: 'GitHub' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Twitter, href: '#', label: 'Twitter' }
+    { icon: Instagram, href: 'https://www.instagram.com/boldtribe.in/', label: 'Instagram' },
+    { icon: Linkedin, href: 'https://www.linkedin.com/company/boldtribe-innovations/posts/?feedView=all', label: 'LinkedIn' },
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61571355283679', label: 'Facebook' },
+    { icon: MessageCircle, href: 'https://wa.me/917684836139', label: 'WhatsApp' }
   ];
 
   return (
@@ -40,7 +42,7 @@ const Footer = () => {
                 <span className="text-white font-bold text-lg sm:text-xl">B</span>
               </div>
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold text-white">BoldTribe</h3>
+                <h3 className="text-xl sm:text-2xl font-bold text-white">Boldtribe Innovation Private Limited</h3>
                 <p className="text-xs sm:text-sm text-gray-400 dark:text-gray-500 -mt-1 transition-colors duration-300">Your Vision. Our Code. Boldly Delivered.</p>
               </div>
             </div>
@@ -123,15 +125,18 @@ const Footer = () => {
               © 2024 BoldTribe. All rights reserved.
             </p>
             <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-4 lg:space-x-6 text-sm sm:text-base">
-              <a href="#" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
+              <Link to="/privacy-policy" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
-                Cookies
-              </a>
+              </Link>
+              <Link to="/services-policy" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
+                Services Policy
+              </Link>
+              <Link to="/refund-policy" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
+                Refund Policy
+              </Link>
             </div>
           </div>
         </div>
