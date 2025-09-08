@@ -12,6 +12,10 @@ const AboutPage = React.lazy(() => import('./pages/AboutPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
 const CaseStudiesPage = React.lazy(() => import('./pages/CaseStudiesPage'));
 const GalleryPage = React.lazy(() => import('./pages/GalleryPage'));
+const PrivacyPolicyPage = React.lazy(() => import('./pages/PrivacyPolicyPage'));
+const TermsOfServicePage = React.lazy(() => import('./pages/TermsOfServicePage'));
+const ServicesPolicyPage = React.lazy(() => import('./pages/ServicesPolicyPage'));
+const RefundPolicyPage = React.lazy(() => import('./pages/RefundPolicyPage'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,20 +30,26 @@ function App() {
       <Router>
         <div className="min-h-screen bg-white dark:bg-[#1e1e1e] transition-colors duration-300">
           <Navigation />
-          <Suspense fallback={
-            <div className="min-h-screen flex items-center justify-center">
-              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-red-600"></div>
-            </div>
-          }>
-            <Routes>
+          <main className="pt-24">
+            <Suspense fallback={
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-red-600"></div>
+              </div>
+            }>
+              <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/services" element={<ServicesPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/case-studies" element={<CaseStudiesPage />} />
               <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+              <Route path="/services-policy" element={<ServicesPolicyPage />} />
+              <Route path="/refund-policy" element={<RefundPolicyPage />} />
             </Routes>
           </Suspense>
+          </main>
         </div>
       </Router>
     </ThemeProvider>

@@ -8,17 +8,18 @@ const Stats = () => {
 
   const stats = [
     { number: '10+', label: 'Projects Delivered', color: 'from-red-500 to-red-600' },
-    { number: '30+', label: 'Partner Brands', color: 'from-red-600 to-red-700' },
+    { number: '5+', label: 'Partner Brands', color: 'from-red-600 to-red-700' },
     { number: '100%', label: 'Vision Execution', color: 'from-red-500 to-red-600' }
   ];
 
   const clientLogos = [
-    'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=100',
-    'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=100',
-    'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=100',
-    'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=100',
-    'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=100',
-    'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=100'
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png?20220821125553',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/2560px-Google_2015_logo.svg.png',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Microsoft_Azure.svg/2560px-Microsoft_Azure.svg.png',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/1280px-Microsoft_logo_%282012%29.svg.png',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/SAP_2011_logo.svg/2560px-SAP_2011_logo.svg.png',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Intel_Logo_July_2006.svg/1280px-Intel_Logo_July_2006.svg.png',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/2560px-Amazon_Web_Services_Logo.svg.png'
   ];
 
   return (
