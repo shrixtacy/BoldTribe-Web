@@ -17,7 +17,7 @@ const NewztokCaseStudy = () => {
       '80% reduction in app loading time through performance optimization',
       '150% increase in user retention rate with personalized recommendations'
     ],
-    technologies: ['React Native', 'Node.js', 'AI/ML', 'Real-time APIs', 'Push Notifications', 'Content Management', 'WebSocket', 'Redis', 'MongoDB', 'AWS'],
+    technologies: ['React.js', 'React Native', 'Node.js', 'Express.js', 'MySQL', 'AWS', 'Firebase'],
     duration: '6 months',
     team_size: 5,
     image: '/team/Screenshot 2025-09-11 100059.png',

@@ -17,7 +17,7 @@ const AhamCaseStudy = () => {
       '85% content creator satisfaction with comprehensive analytics',
       '120% improvement in content loading speed with CDN optimization'
     ],
-    technologies: ['React', 'E-commerce', 'Digital Content', 'Payment Gateway', 'Content Management', 'User Analytics', 'Node.js', 'DRM', 'CDN', 'MongoDB'],
+    technologies: ['Next.js', 'React.js', 'Node.js', 'Express.js', 'MySQL'],
     duration: '7 months',
     team_size: 6,
     image: 'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=800',

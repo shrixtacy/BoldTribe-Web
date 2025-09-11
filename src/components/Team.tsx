@@ -55,7 +55,10 @@ const Team = memo(() => {
       essence: 'Developer',
       image: '/team/Rajesh .jpg',
       quote: 'Building robust and scalable applications.',
-      social: { linkedin: 'https://www.linkedin.com/in/rajesh-kumar-pattanaik-032b64243/' },
+      social: { 
+        linkedin: 'https://www.linkedin.com/in/rajesh-kumar-pattanaik-032b64243/',
+        github: 'https://github.com/rajeshboldtribe'
+      },
     },
     {
       name: 'Suvendu Kumar Rath',

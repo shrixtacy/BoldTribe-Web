@@ -20,7 +20,8 @@ const TeamSection = () => {
     {
       name: 'Rajesh Kumar Pattnaik',
       role: 'Application Developer',
-      linkedin: 'https://www.linkedin.com/in/rajesh-kumar-pattanaik-032b64243/'
+      linkedin: 'https://www.linkedin.com/in/rajesh-kumar-pattanaik-032b64243/',
+      github: 'https://github.com/rajeshboldtribe'
     },
     {
       name: 'Suvendu Kumar Rath',
