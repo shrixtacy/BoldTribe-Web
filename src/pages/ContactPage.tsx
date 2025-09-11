@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Mail, Phone, MapPin, Send, Clock, Globe, MessageCircle, CheckCircle, ArrowRight, Sparkles, Zap, Star } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import { useStaggeredAnimation } from '../hooks/useScrollAnimation';
+import { submitEnquiry, submitEnquiryViaEmail } from '../services/enquiryService';
 
 const ContactPage = () => {
   const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [focusedField, setFocusedField] = useState<string | null>(null);
+  const [submitError, setSubmitError] = useState('');
   
   const [contactRef, visibleContact] = useStaggeredAnimation(3, 200);
   const [formRef, visibleForm] = useStaggeredAnimation(6, 100);
@@ -57,10 +59,10 @@ const ContactPage = () => {
   ];
 
   const budgetRanges = [
-    '$5,000 - $10,000',
-    '$10,000 - $25,000',
-    '$25,000 - $50,000',
-    '$50,000+'
+    '₹5,000 - ₹10,000',
+    '₹10,000 - ₹25,000',
+    '₹25,000 - ₹50,000',
+    '₹50,000+'
   ];
 
   const features = [
@@ -96,25 +98,63 @@ const ContactPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        service: '',
-        budget: '',
-        message: ''
+    setSubmitError('');
+
+    try {
+      const result = await submitEnquiry({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        service: formData.service,
+        budget: formData.budget,
+        message: formData.message,
+        source: 'contact' as const
       });
-    }, 3000);
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          service: '',
+          budget: '',
+          message: ''
+        });
+        
+        // Reset success state after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        setSubmitError(result.message);
+        // Fallback to email if Google Sheets fails
+        submitEnquiryViaEmail({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          service: formData.service,
+          budget: formData.budget,
+          message: formData.message,
+          source: 'contact' as const
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('Failed to submit. Opening email client as fallback...');
+      // Fallback to email
+      submitEnquiryViaEmail({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        service: formData.service,
+        budget: formData.budget,
+        message: formData.message,
+        source: 'contact' as const
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -391,6 +431,13 @@ const ContactPage = () => {
                     placeholder="Tell us about your project, goals, timeline, and any specific requirements..."
                   />
                 </div>
+
+                {/* Error Message */}
+                {submitError && (
+                  <div className="text-red-600 text-sm bg-red-50 dark:bg-red-900/20 p-4 rounded-xl border border-red-200 dark:border-red-800">
+                    {submitError}
+                  </div>
+                )}
 
                 {/* Submit Button */}
                 <button

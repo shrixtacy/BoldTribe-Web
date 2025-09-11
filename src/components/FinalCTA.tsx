@@ -1,8 +1,65 @@
-import React from 'react';
-import { ArrowRight, Sparkles, Mail, Phone } from 'lucide-react';
+import React, { useState } from 'react';
+import { ArrowRight, Sparkles, Mail, Phone, Send, CheckCircle } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import { submitEnquiry, submitEnquiryViaEmail } from '../services/enquiryService';
 
 const FinalCTA = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const result = await submitEnquiry({
+        ...formData,
+        source: 'home' as const
+      });
+
+      if (result.success) {
+        setIsSubmitted(true);
+        setFormData({ name: '', email: '', message: '' });
+        
+        // Reset success state after 5 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+        }, 5000);
+      } else {
+        setSubmitError(result.message);
+        // Fallback to email if Google Sheets fails
+        submitEnquiryViaEmail({
+          ...formData,
+          source: 'home' as const
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setSubmitError('Failed to submit. Opening email client as fallback...');
+      // Fallback to email
+      submitEnquiryViaEmail({
+        ...formData,
+        source: 'home' as const
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section className="relative bg-gradient-to-br from-red-500 via-red-600 to-red-700 overflow-hidden">
       {/* Curved Top */}
@@ -77,39 +134,79 @@ const FinalCTA = () => {
             <div className="bg-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl transform -rotate-1 sm:-rotate-2 hover:rotate-0 transition-transform duration-300 grid-pattern">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Get In Touch</h3>
               
-              <form className="space-y-4 sm:space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Name *</label>
                   <input
                     type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition-all text-sm sm:text-base"
                     placeholder="Your name"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email *</label>
                   <input
                     type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition-all text-sm sm:text-base"
                     placeholder="your@email.com"
                   />
                 </div>
                 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Details</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Project Details *</label>
                   <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
                     rows={4}
                     className="w-full px-3 sm:px-4 py-2 sm:py-3 rounded-lg sm:rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 outline-none transition-all resize-none text-sm sm:text-base"
                     placeholder="Tell us about your project..."
                   ></textarea>
                 </div>
+
+                {submitError && (
+                  <div className="text-red-600 text-sm bg-red-50 p-3 rounded-lg">
+                    {submitError}
+                  </div>
+                )}
                 
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold hover:from-red-600 hover:to-red-700 transition-all duration-300 hover:shadow-lg text-sm sm:text-base"
+                  disabled={isSubmitting || isSubmitted}
+                  className={`w-full py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold transition-all duration-300 text-sm sm:text-base flex items-center justify-center gap-2 ${
+                    isSubmitted
+                      ? 'bg-green-600 text-white'
+                      : isSubmitting
+                      ? 'bg-gray-400 text-white cursor-not-allowed'
+                      : 'bg-gradient-to-r from-red-500 to-red-600 text-white hover:from-red-600 hover:to-red-700 hover:shadow-lg'
+                  }`}
                 >
-                  Send Message
+                  {isSubmitted ? (
+                    <>
+                      <CheckCircle className="w-4 h-4" />
+                      Message Sent!
+                    </>
+                  ) : isSubmitting ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send className="w-4 h-4" />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             </div>
