@@ -121,10 +121,13 @@ const FinalCTA = () => {
             {/* CTA Button */}
             <AnimatedSection animation="fadeUp" delay={600}>
               <div className="pt-4 flex justify-center lg:justify-start">
-              <button className="group bg-white text-red-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex items-center gap-3 sm:gap-4">
+              <a 
+                href="/contact" 
+                className="group bg-white text-red-600 px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex items-center gap-3 sm:gap-4"
+              >
                 <span>Start Your Project</span>
                 <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </a>
               </div>
             </AnimatedSection>
           </AnimatedSection>

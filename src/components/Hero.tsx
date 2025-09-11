@@ -75,14 +75,20 @@ const Hero = () => {
             {/* CTA Buttons */}
             <AnimatedSection animation="fadeUp" delay={400}>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4 justify-center lg:justify-start">
-                <button className="group bg-white text-red-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg lg:text-xl hover:bg-red-50 transition-all duration-300 hover:shadow-2xl hover:scale-105 relative overflow-hidden">
+                <a 
+                  href="/contact" 
+                  className="group bg-white text-red-600 px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg lg:text-xl hover:bg-red-50 transition-all duration-300 hover:shadow-2xl hover:scale-105 relative overflow-hidden inline-block text-center"
+                >
                   <span className="relative z-10">Start Your Project</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-red-50 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </button>
-                <button className="group border-2 border-white/30 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg lg:text-xl hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm">
+                </a>
+                <a 
+                  href="/case-studies" 
+                  className="group border-2 border-white/30 text-white px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg lg:text-xl hover:bg-white/10 transition-all duration-300 flex items-center justify-center gap-3 backdrop-blur-sm"
+                >
                   <Play className="w-5 h-5 sm:w-6 sm:h-6 group-hover:scale-110 transition-transform" />
                   View Our Work
-                </button>
+                </a>
               </div>
             </AnimatedSection>
 
