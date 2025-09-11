@@ -336,7 +336,7 @@ const GalleryPage = () => {
             {/* Close Button */}
             <button
               onClick={closeLightbox}
-              className="absolute top-4 right-4 z-10 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
+              className="absolute top-4 right-4 z-50 w-12 h-12 bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-all duration-300"
             >
               <X className="w-6 h-6" />
             </button>
@@ -419,12 +419,18 @@ const GalleryPage = () => {
               Let's bring your vision to life with our creative expertise and innovative solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-700 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <a 
+                href="/contact" 
+                className="bg-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-700 transition-all duration-300 hover:shadow-xl hover:scale-105"
+              >
                 Start Your Project
-              </button>
-              <button className="border-2 border-red-200 dark:border-red-800/30 text-red-600 dark:text-red-400 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300">
+              </a>
+              <a 
+                href="/case-studies" 
+                className="border-2 border-red-200 dark:border-red-800/30 text-red-600 dark:text-red-400 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300"
+              >
                 View More Work
-              </button>
+              </a>
             </div>
           </AnimatedSection>
         </div>

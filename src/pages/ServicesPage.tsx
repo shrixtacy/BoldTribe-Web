@@ -151,7 +151,7 @@ const ServicesPage = () => {
             <AnimatedSection animation="fadeUp" delay={200}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-red-600 dark:text-red-400">Transform Your Vision Into</span>
-                <span className="block text-gray-900 dark:text-white bg-white/90 dark:bg-transparent px-4 py-2 rounded-xl dark:px-0 dark:py-0 dark:rounded-none">
+                <span className="block text-gray-800 dark:text-white bg-white/95 dark:bg-transparent px-4 py-2 rounded-xl dark:px-0 dark:py-0 dark:rounded-none shadow-lg">
                   Digital Reality
                 </span>
               </h1>
@@ -165,14 +165,20 @@ const ServicesPage = () => {
             
             <AnimatedSection animation="fadeUp" delay={600}>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12">
-                <button className="group bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex items-center gap-3">
+                <a 
+                  href="/contact" 
+                  className="group bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex items-center gap-3"
+                >
                   <span>Enquire Now</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
-                <button className="group border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center gap-3">
-                  <span className="text-gray-900 dark:text-white">View Our Work</span>
+                </a>
+                <a 
+                  href="/case-studies" 
+                  className="group border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center gap-3"
+                >
+                  <span>View Our Work</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </button>
+                </a>
               </div>
             </AnimatedSection>
             
@@ -411,12 +417,18 @@ const ServicesPage = () => {
               Let's discuss how our services can transform your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <a 
+                href="/contact" 
+                className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-xl hover:scale-105"
+              >
                 Get Free Consultation
-              </button>
-              <button className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300">
+              </a>
+              <a 
+                href="/case-studies" 
+                className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300"
+              >
                 View Portfolio
-              </button>
+              </a>
             </div>
           </AnimatedSection>
         </div>

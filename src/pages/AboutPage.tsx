@@ -477,12 +477,18 @@ const AboutPage = () => {
               Let's discuss how we can bring your vision to life with our expertise and passion.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-xl hover:scale-105">
+              <a 
+                href="/contact" 
+                className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-xl hover:scale-105"
+              >
                 Start Your Project
-              </button>
-              <button className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300">
+              </a>
+              <a 
+                href="/services" 
+                className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300"
+              >
                 Learn More
-              </button>
+              </a>
             </div>
           </AnimatedSection>
         </div>
