@@ -4,6 +4,10 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import LoadingScreen from './components/LoadingScreen';
 import Navigation from './components/Navigation';
+import Preloader from './components/Preloader';
+import ResourceHints from './components/ResourceHints';
+import { useLenis } from './hooks/useLenis';
+import { usePerformanceMonitor } from './hooks/usePerformanceMonitor';
 
 // Lazy load components
 const HomePage = React.lazy(() => import('./pages/HomePage'));
@@ -26,6 +30,8 @@ const AhamCaseStudy = React.lazy(() => import('./pages/AhamCaseStudy'));
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const lenis = useLenis();
+  usePerformanceMonitor();
 
   const handleLoadingComplete = () => {
     setIsLoading(false);
@@ -33,6 +39,8 @@ function App() {
 
   return (
     <ThemeProvider>
+      <ResourceHints />
+      <Preloader />
       {isLoading && <LoadingScreen onComplete={handleLoadingComplete} />}
       <Router>
         <div className="min-h-screen bg-white dark:bg-[#1e1e1e] transition-colors duration-300">

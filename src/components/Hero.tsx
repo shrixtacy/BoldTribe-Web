@@ -1,5 +1,6 @@
 import { Play, Sparkles, Zap, Star } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import OptimizedImage from './OptimizedImage';
 
 const Hero = () => {
   return (
@@ -110,10 +111,11 @@ const Hero = () => {
             <div className="bg-white/95 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-8 sm:p-10 lg:p-12 shadow-2xl transform rotate-1 sm:rotate-2 hover:rotate-0 transition-all duration-500 hover:shadow-3xl border border-white/20">
               <div className="h-80 sm:h-96 lg:h-[500px] bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50 rounded-xl sm:rounded-2xl flex items-center justify-center relative overflow-hidden">
                 {/* Crayon GIF - Centered with equal borders */}
-                <img 
+                <OptimizedImage 
                   src="/Crayon.gif" 
                   alt="Crayon Animation" 
                   className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
+                  priority={true}
                 />
                 {/* Overlay for better text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl sm:rounded-2xl"></div>

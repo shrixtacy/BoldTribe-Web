@@ -9,8 +9,34 @@
   box-sizing: border-box;
 }
 
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* GPU acceleration for animations */
+.animate-float,
+.animate-pulse,
+.animate-spin,
+.animate-bounce {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimize repaints */
+.transition-all {
+  will-change: auto;
+}
+
+/* Reduce layout thrashing */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto; /* Let Lenis handle smooth scrolling */
 }
 
 body {
@@ -520,9 +546,9 @@ a:focus {
   transform: translateY(0);
 }
 
-/* Smooth scroll behavior */
+/* Smooth scroll behavior - handled by Lenis */
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
 }
 
 /* Enhanced button hover effects */

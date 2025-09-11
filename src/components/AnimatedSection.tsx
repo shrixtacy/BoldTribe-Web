@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, memo } from 'react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 interface AnimatedSectionProps {
@@ -8,7 +8,7 @@ interface AnimatedSectionProps {
   delay?: number;
 }
 
-const AnimatedSection: React.FC<AnimatedSectionProps> = ({ 
+const AnimatedSection: React.FC<AnimatedSectionProps> = memo(({ 
   children, 
   className = '', 
   animation = 'fadeUp',
@@ -48,6 +48,8 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
       {children}
     </div>
   );
-};
+});
+
+AnimatedSection.displayName = 'AnimatedSection';
 
 export default AnimatedSection;
