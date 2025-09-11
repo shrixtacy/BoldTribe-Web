@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink, Calendar, User, Tag, Search, Filter, Eye, Heart, Share2, Clock, Award, TrendingUp, Zap, Star, ChevronDown, RefreshCw } from 'lucide-react';
 import AnimatedSection from '../components/AnimatedSection';
 import { useStaggeredAnimation } from '../hooks/useScrollAnimation';
@@ -66,119 +67,126 @@ const CaseStudiesPage = () => {
   
   const [studiesRef, visibleStudies] = useStaggeredAnimation(6, 150);
 
-  // Mock case studies data
+  // BoldTribe Case Studies Data
   const mockCaseStudies: CaseStudy[] = [
     {
       id: 1,
-      title: 'FinTech Revolution Platform',
-      client: 'TechVision Inc.',
-      industry: 'Financial Technology',
-      challenge: 'Create a comprehensive financial platform that revolutionizes investment tracking and market analysis.',
-      solution: 'Built a scalable web application with real-time data processing, AI-powered insights, and intuitive user interface.',
-      results: ['300% increase in user engagement', '150% faster transaction processing', '95% user satisfaction rate'],
-      technologies: ['React', 'Node.js', 'AI/ML', 'Blockchain', 'WebSocket'],
-      duration: '8 months',
-      team_size: 6,
-      image: 'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Newztok - News Aggregator App',
+      client: 'Media House Pvt. Ltd.',
+      industry: 'Media & News',
+      challenge: 'Create a comprehensive news aggregation platform that curates and delivers personalized news content from multiple sources with real-time updates and user engagement features.',
+      solution: 'Developed a cross-platform mobile application with AI-powered content curation, real-time news updates, personalized feeds, and seamless user experience across Android and iOS platforms.',
+      results: ['500% increase in user engagement', '300% faster news delivery', '95% user satisfaction rate', '200% increase in daily active users'],
+      technologies: ['React Native', 'Node.js', 'AI/ML', 'Real-time APIs', 'Push Notifications', 'Content Management'],
+      duration: '6 months',
+      team_size: 5,
+      image: '/team/Screenshot 2025-09-11 100059.png',
       gallery: [
-        'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=400',
-        'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=400'
+        '/team/Screenshot 2025-09-11 100059.png',
+        'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400',
+        'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=400'
       ],
       testimonial: {
-        quote: 'BoldTribe delivered beyond our expectations. The platform has transformed our business.',
-        author: 'Robert Johnson',
-        position: 'CEO, TechVision Inc.'
+        quote: 'Newztok has revolutionized how we consume news. The personalized content delivery and real-time updates have significantly improved user engagement.',
+        author: 'Sarah Johnson',
+        position: 'CEO, Media House Pvt. Ltd.'
       }
     },
     {
       id: 2,
-      title: 'EcoSmart Cities Platform',
-      client: 'GreenTech Solutions',
-      industry: 'Smart Cities',
-      challenge: 'Develop an IoT platform connecting smart city infrastructure with citizen engagement.',
-      solution: 'Created a comprehensive mobile and web platform with real-time monitoring and citizen interaction features.',
-      results: ['40% reduction in energy consumption', '200% increase in citizen engagement', '85% operational efficiency improvement'],
-      technologies: ['React Native', 'IoT', 'Data Analytics', 'Cloud Computing'],
-      duration: '10 months',
-      team_size: 8,
-      image: 'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Cohopers - Visitor Management App',
+      client: 'Corporate Solutions Inc.',
+      industry: 'Security & Management',
+      challenge: 'Develop an intelligent visitor management system that streamlines check-in processes, enhances security, and provides digital visitor tracking with real-time monitoring capabilities.',
+      solution: 'Built a comprehensive visitor management platform with QR code integration, digital check-in/check-out, visitor pre-registration, and real-time security monitoring dashboard.',
+      results: ['80% reduction in check-in time', '100% digital visitor tracking', '90% improvement in security compliance', '60% reduction in administrative workload'],
+      technologies: ['React', 'QR Code', 'Database', 'Security', 'Real-time Monitoring', 'Mobile Integration'],
+      duration: '4 months',
+      team_size: 4,
+      image: '/team/Screenshot 2025-09-11 100036.png',
       gallery: [
-        'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=400',
+        '/team/Screenshot 2025-09-11 100036.png',
         'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400'
-      ]
+      ],
+      testimonial: {
+        quote: 'Cohopers has transformed our visitor management process. The digital tracking and security features have made our facility much more secure and efficient.',
+        author: 'Michael Chen',
+        position: 'Security Manager, Corporate Solutions Inc.'
+      }
     },
     {
       id: 3,
-      title: 'MetaVerse Commerce Hub',
-      client: 'Digital Innovations Ltd.',
-      industry: 'E-commerce',
-      challenge: 'Build a decentralized marketplace for virtual asset trading in the metaverse.',
-      solution: 'Developed a blockchain-based platform with NFT integration and virtual reality shopping experience.',
-      results: ['500% increase in virtual sales', '120% user retention rate', '90% transaction success rate'],
-      technologies: ['Web3', 'Solidity', 'React', 'IPFS', 'VR'],
-      duration: '12 months',
-      team_size: 10,
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Mysocus - Apartment Management App',
+      client: 'Real Estate Developers',
+      industry: 'Real Estate & Property Management',
+      challenge: 'Create a complete apartment management solution that digitizes property management, tenant communication, maintenance workflows, and financial transactions.',
+      solution: 'Developed a comprehensive property management platform with tenant portal, maintenance request system, payment gateway integration, and real-time communication features.',
+      results: ['70% improvement in tenant satisfaction', '85% reduction in maintenance response time', '100% digital payment processing', '50% increase in operational efficiency'],
+      technologies: ['React Native', 'Firebase', 'Payment Gateway', 'Cloud', 'Real-time Chat', 'Document Management'],
+      duration: '8 months',
+      team_size: 6,
+      image: '/team/Screenshot 2025-09-11 100014.png',
       gallery: [
-        'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=400',
-        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400'
-      ]
+        '/team/Screenshot 2025-09-11 100014.png',
+        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400',
+        'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=400'
+      ],
+      testimonial: {
+        quote: 'Mysocus has completely digitized our property management. The tenant satisfaction has improved dramatically, and our operations are now much more efficient.',
+        author: 'David Kumar',
+        position: 'Property Manager, Real Estate Developers'
+      }
     },
     {
       id: 4,
-      title: 'HealthTech AI Assistant',
-      client: 'MedCare Systems',
-      industry: 'Healthcare',
-      challenge: 'Create an AI-powered healthcare assistant for patient monitoring and diagnosis support.',
-      solution: 'Built an intelligent system with machine learning algorithms for health data analysis and recommendations.',
-      results: ['60% faster diagnosis time', '95% accuracy in health predictions', '80% reduction in manual work'],
-      technologies: ['Python', 'TensorFlow', 'React', 'Cloud AI', 'IoT'],
-      duration: '14 months',
-      team_size: 12,
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Boldeats - Tiffin Center Listing',
+      client: 'Food Delivery Startup',
+      industry: 'Food & Beverage',
+      challenge: 'Build a food delivery platform specializing in tiffin services, connecting customers with local home-cooked meal providers and ensuring quality food delivery.',
+      solution: 'Created a specialized food delivery platform with vendor onboarding, quality assurance, location-based delivery, and integrated payment system for tiffin services.',
+      results: ['400% increase in vendor registrations', '250% growth in customer base', '95% customer satisfaction rate', '180% increase in daily orders'],
+      technologies: ['React', 'Node.js', 'Maps API', 'Payment Integration', 'Location Services', 'Quality Control'],
+      duration: '5 months',
+      team_size: 5,
+      image: '/team/Screenshot 2025-09-11 095942.png',
       gallery: [
-        'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400',
-        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400'
-      ]
+        '/team/Screenshot 2025-09-11 095942.png',
+        'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=400',
+        'https://images.pexels.com/photos/11035380/pexels-photo-11035380.jpeg?auto=compress&cs=tinysrgb&w=400'
+      ],
+      testimonial: {
+        quote: 'Boldeats has revolutionized the tiffin delivery market. Our customers love the authentic home-cooked meals, and our vendors are thriving.',
+        author: 'Priya Sharma',
+        position: 'Founder, Food Delivery Startup'
+      }
     },
     {
       id: 5,
-      title: 'EdTech Learning Platform',
-      client: 'Future Learning Co.',
-      industry: 'Education',
-      challenge: 'Develop an interactive online learning platform with personalized education paths.',
-      solution: 'Created a comprehensive LMS with AI-driven personalization and interactive content delivery.',
-      results: ['250% increase in student engagement', '90% course completion rate', '85% knowledge retention improvement'],
-      technologies: ['React', 'Node.js', 'AI/ML', 'Video Streaming', 'Analytics'],
-      duration: '9 months',
-      team_size: 7,
-      image: 'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=800',
+      title: 'Aham - E-commerce & Kindle App',
+      client: 'Digital Content Platform',
+      industry: 'E-commerce & Digital Content',
+      challenge: 'Develop an innovative e-commerce platform with digital content distribution, combining physical products with digital media sales and content management.',
+      solution: 'Built a hybrid e-commerce platform with integrated digital content management, e-book distribution, payment processing, and user-friendly content consumption features.',
+      results: ['300% increase in digital content sales', '200% growth in user engagement', '90% customer retention rate', '150% increase in average order value'],
+      technologies: ['React', 'E-commerce', 'Digital Content', 'Payment Gateway', 'Content Management', 'User Analytics'],
+      duration: '7 months',
+      team_size: 6,
+      image: 'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=800',
       gallery: [
-        'https://images.pexels.com/photos/3184338/pexels-photo-3184338.jpeg?auto=compress&cs=tinysrgb&w=400',
-        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400'
-      ]
-    },
-    {
-      id: 6,
-      title: 'RetailTech Analytics Suite',
-      client: 'Retail Dynamics',
-      industry: 'Retail',
-      challenge: 'Build a comprehensive analytics platform for retail performance optimization.',
-      solution: 'Developed a data-driven platform with real-time analytics, inventory management, and customer insights.',
-      results: ['180% improvement in inventory turnover', '65% increase in customer satisfaction', '45% boost in sales performance'],
-      technologies: ['React', 'Python', 'Big Data', 'Machine Learning', 'Cloud'],
-      duration: '11 months',
-      team_size: 9,
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=800',
-      gallery: [
-        'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=400',
-        'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=400'
-      ]
+        'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=400',
+        'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=400',
+        'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=400'
+      ],
+      testimonial: {
+        quote: 'Aham has created a unique marketplace for both physical and digital products. The seamless integration has significantly boosted our sales and user engagement.',
+        author: 'Alex Rodriguez',
+        position: 'CEO, Digital Content Platform'
+      }
     }
   ];
 
-  const categories = ['all', 'fintech', 'healthcare', 'e-commerce', 'education', 'smart-cities', 'retail'];
-  const industries = ['All', 'Financial Technology', 'Healthcare', 'E-commerce', 'Education', 'Smart Cities', 'Retail'];
+  const categories = ['all', 'media-news', 'security-management', 'real-estate', 'food-beverage', 'e-commerce-content'];
+  const industries = ['All', 'Media & News', 'Security & Management', 'Real Estate & Property Management', 'Food & Beverage', 'E-commerce & Digital Content'];
 
   const features = [
     {
@@ -569,17 +577,132 @@ const CaseStudiesPage = () => {
         </div>
       </section>
 
-      {/* WordPress Case Studies - Main Content */}
+      {/* BoldTribe Case Studies - Main Content */}
       <section className="py-20 bg-gray-50 dark:bg-[#1a1a1a] transition-colors duration-300 dots-pattern">
         <div className="container mx-auto px-4 sm:px-6">
-                      <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                Our Case Studies from WordPress
-              </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Real projects, real results. Explore our successful case studies from WordPress.
-              </p>
-            </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              Our Featured Case Studies
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Real projects, real results. Explore our successful case studies and see how we've helped businesses grow.
+            </p>
+          </div>
+          
+          {/* Case Studies Grid */}
+          <div ref={studiesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {mockCaseStudies.map((study, index) => (
+              <div
+                key={study.id}
+                className={`group transition-all duration-700 ease-out ${
+                  visibleStudies.has(index) 
+                    ? 'opacity-100 translate-y-0' 
+                    : 'opacity-100 translate-y-0'
+                }`}
+              >
+                <div className="bg-white dark:bg-[#2a2a2a] rounded-2xl overflow-hidden shadow-lg hover:shadow-xl hover:shadow-red-500/10 transition-all duration-500 hover:scale-[1.02] hover:-translate-y-1 dark:shadow-black/30 border border-gray-100 dark:border-gray-700">
+                  {/* Image */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img
+                      src={study.image}
+                      alt={study.title}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                    <div className="absolute top-4 left-4">
+                      <span className="inline-block bg-red-600/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-full text-xs font-semibold shadow-lg">
+                        {study.industry}
+                      </span>
+                    </div>
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                        <ExternalLink className="w-4 h-4 text-white" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Content */}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-2 h-2 bg-red-500 rounded-full"></div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wide">
+                        {study.client}
+                      </span>
+                    </div>
+                    
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3 transition-colors duration-300 line-clamp-2">
+                      {study.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed transition-colors duration-300 text-sm line-clamp-3">
+                      {study.challenge}
+                    </p>
+
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-1.5 mb-4">
+                      {study.technologies.slice(0, 3).map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="text-xs px-2 py-1 bg-gray-50 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded-lg transition-colors duration-300 border border-gray-100 dark:border-gray-700"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                      {study.technologies.length > 3 && (
+                        <span className="text-xs px-2 py-1 bg-gray-50 dark:bg-gray-800 text-gray-500 dark:text-gray-400 rounded-lg">
+                          +{study.technologies.length - 3}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Results */}
+                    <div className="mb-4">
+                      <h4 className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">Key Results:</h4>
+                      <ul className="text-xs text-gray-600 dark:text-gray-300 space-y-1">
+                        {study.results.slice(0, 2).map((result, resultIndex) => (
+                          <li key={resultIndex} className="flex items-start">
+                            <span className="text-red-500 mr-2">•</span>
+                            {result}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    {/* Footer */}
+                    <div className="flex items-center justify-between pt-4 border-t border-gray-100 dark:border-gray-700">
+                      <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                        <Clock className="w-3 h-3 mr-1.5" />
+                        {study.duration}
+                      </div>
+                      
+                      <Link 
+                        to={`/case-studies/${study.title.toLowerCase().split(' - ')[0]}`}
+                        className="flex items-center gap-1.5 text-red-600 dark:text-red-400 font-semibold text-sm hover:gap-2 transition-all group"
+                      >
+                        View Details
+                        <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* WordPress Case Studies - Secondary Content */}
+      <section className="py-20 bg-white dark:bg-[#1e1e1e] transition-colors duration-300">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              Additional Case Studies from WordPress
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              More detailed case studies and insights from our WordPress blog.
+            </p>
+          </div>
           
           {loading ? (
             <div className="text-center py-12">
