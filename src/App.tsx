@@ -17,6 +17,13 @@ const TermsOfServicePage = React.lazy(() => import('./pages/TermsOfServicePage')
 const ServicesPolicyPage = React.lazy(() => import('./pages/ServicesPolicyPage'));
 const RefundPolicyPage = React.lazy(() => import('./pages/RefundPolicyPage'));
 
+// Individual Case Study Pages
+const NewztokCaseStudy = React.lazy(() => import('./pages/NewztokCaseStudy'));
+const CohopersCaseStudy = React.lazy(() => import('./pages/CohopersCaseStudy'));
+const MysocusCaseStudy = React.lazy(() => import('./pages/MysocusCaseStudy'));
+const BoldeatsCaseStudy = React.lazy(() => import('./pages/BoldeatsCaseStudy'));
+const AhamCaseStudy = React.lazy(() => import('./pages/AhamCaseStudy'));
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -47,6 +54,13 @@ function App() {
               <Route path="/terms-of-service" element={<TermsOfServicePage />} />
               <Route path="/services-policy" element={<ServicesPolicyPage />} />
               <Route path="/refund-policy" element={<RefundPolicyPage />} />
+              
+              {/* Individual Case Study Routes */}
+              <Route path="/case-studies/newztok" element={<NewztokCaseStudy />} />
+              <Route path="/case-studies/cohopers" element={<CohopersCaseStudy />} />
+              <Route path="/case-studies/mysocus" element={<MysocusCaseStudy />} />
+              <Route path="/case-studies/boldeats" element={<BoldeatsCaseStudy />} />
+              <Route path="/case-studies/aham" element={<AhamCaseStudy />} />
             </Routes>
           </Suspense>
           </main>

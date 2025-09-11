@@ -1,36 +1,53 @@
 import React, { useState } from 'react';
 import { ExternalLink, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import AnimatedSection from './AnimatedSection';
 import { useStaggeredAnimation } from '../hooks/useScrollAnimation';
 
 const Work = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
-  const [ref, visibleItems] = useStaggeredAnimation(3, 200);
+  const [ref, visibleItems] = useStaggeredAnimation(5, 200);
 
   const projects = [
     {
-      title: 'FinTech Revolution',
-      category: 'Web Application',
-      description: 'A comprehensive financial platform that revolutionizes how users manage their investments and track market trends.',
+      title: 'Newztok',
+      category: 'News Aggregator App',
+      description: 'A comprehensive news aggregation platform that curates and delivers personalized news content from multiple sources with real-time updates.',
+      image: '/team/Screenshot 2025-09-11 100059.png',
+      technologies: ['React Native', 'Node.js', 'AI/ML', 'Real-time APIs'],
+      link: '/case-studies/newztok'
+    },
+    {
+      title: 'Cohopers',
+      category: 'Visitor Management App',
+      description: 'An intelligent visitor management system that streamlines check-in processes and enhances security with digital visitor tracking.',
+      image: '/team/Screenshot 2025-09-11 100036.png',
+      technologies: ['React', 'QR Code', 'Database', 'Security'],
+      link: '/case-studies/cohopers'
+    },
+    {
+      title: 'Mysocus',
+      category: 'Apartment Management App',
+      description: 'A complete apartment management solution that digitizes property management, tenant communication, and maintenance workflows.',
+      image: '/team/Screenshot 2025-09-11 100014.png',
+      technologies: ['React Native', 'Firebase', 'Payment Gateway', 'Cloud'],
+      link: '/case-studies/mysocus'
+    },
+    {
+      title: 'Boldeats',
+      category: 'Tiffin Center Listing',
+      description: 'A food delivery platform specializing in tiffin services, connecting customers with local home-cooked meal providers.',
+      image: '/team/Screenshot 2025-09-11 095942.png',
+      technologies: ['React', 'Node.js', 'Maps API', 'Payment Integration'],
+      link: '/case-studies/boldeats'
+    },
+    {
+      title: 'Aham',
+      category: 'E-commerce & Kindle App',
+      description: 'An innovative e-commerce platform with digital content distribution, combining physical products with digital media sales.',
       image: 'https://images.pexels.com/photos/159888/pexels-photo-159888.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React', 'Node.js', 'AI/ML', 'Blockchain'],
-      link: '#'
-    },
-    {
-      title: 'EcoSmart Cities',
-      category: 'Mobile App',
-      description: 'An innovative IoT platform connecting smart city infrastructure with citizen engagement for sustainable urban living.',
-      image: 'https://images.pexels.com/photos/3184300/pexels-photo-3184300.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['React Native', 'IoT', 'Data Analytics', 'Cloud'],
-      link: '#'
-    },
-    {
-      title: 'MetaVerse Commerce',
-      category: 'Blockchain',
-      description: 'A decentralized marketplace enabling virtual asset trading and NFT commerce in the metaverse ecosystem.',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=600',
-      technologies: ['Web3', 'Solidity', 'React', 'IPFS'],
-      link: '#'
+      technologies: ['React', 'E-commerce', 'Digital Content', 'Payment Gateway'],
+      link: '/case-studies/aham'
     }
   ];
 
@@ -54,9 +71,10 @@ const Work = () => {
           {/* Left Side - Project Cards */}
           <div ref={ref} className="space-y-6 sm:space-y-8 order-last lg:order-first">
             {projects.map((project, index) => (
-              <div
+              <Link
                 key={index}
-                className={`bg-white dark:bg-[#2a2a2a] rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-700 ease-out cursor-pointer border-2 shadow-xl ${
+                to={project.link}
+                className={`block bg-white dark:bg-[#2a2a2a] rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-700 ease-out cursor-pointer border-2 shadow-xl ${
                   hoveredProject === index 
                     ? 'border-red-500/50 scale-105 shadow-2xl shadow-red-500/20' 
                     : 'border-transparent hover:border-red-500/30 dark:shadow-black/50 transition-colors duration-300'
@@ -101,20 +119,19 @@ const Work = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
 
           {/* Right Side - Featured Project Display */}
           <AnimatedSection animation="slideLeft" delay={400} className="relative order-first lg:order-last">
             <div className="bg-white dark:bg-[#2a2a2a] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl transform rotate-1 sm:rotate-2 hover:rotate-0 transition-all duration-300 dark:shadow-black/50">
-              <div className="aspect-video bg-gradient-to-br from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 rounded-xl sm:rounded-2xl mb-4 sm:mb-6 flex items-center justify-center transition-colors duration-300">
-                <div className="text-center">
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center">
-                    <span className="text-white font-bold text-lg sm:text-xl">B</span>
-                  </div>
-                  <p className="text-gray-700 dark:text-gray-300 font-medium text-sm sm:text-base transition-colors duration-300">Featured Project Preview</p>
-                </div>
+              <div className="aspect-video rounded-xl sm:rounded-2xl mb-4 sm:mb-6 overflow-hidden">
+                <img
+                  src={projects[hoveredProject || 0]?.image || projects[0].image}
+                  alt={projects[hoveredProject || 0]?.title || projects[0].title}
+                  className="w-full h-full object-cover transition-all duration-300 hover:scale-105"
+                />
               </div>
               
               <h4 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">
@@ -124,18 +141,24 @@ const Work = () => {
                 {projects[hoveredProject || 0]?.description || 'A comprehensive financial platform...'}
               </p>
               
-              <button className="flex items-center gap-2 text-red-600 dark:text-red-400 font-semibold hover:gap-3 transition-all text-sm sm:text-base">
+              <Link 
+                to={projects[hoveredProject || 0]?.link || projects[0].link}
+                className="flex items-center gap-2 text-red-600 dark:text-red-400 font-semibold hover:gap-3 transition-all text-sm sm:text-base"
+              >
                 View Case Study <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </AnimatedSection>
         </div>
 
         {/* CTA Section */}
         <AnimatedSection animation="fadeUp" delay={800} className="text-center mt-16 sm:mt-20">
-          <button className="bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-red-700 transition-all duration-300 hover:shadow-xl hover:scale-105">
-            View All Projects
-          </button>
+          <Link 
+            to="/case-studies"
+            className="inline-block bg-red-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl sm:rounded-2xl font-semibold text-base sm:text-lg hover:bg-red-700 transition-all duration-300 hover:shadow-xl hover:scale-105"
+          >
+            View All Case Studies
+          </Link>
         </AnimatedSection>
       </div>
     </section>
