@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="white"/>
+  <g transform="translate(4, 4)">
+    <rect width="24" height="24" fill="white" stroke="#333" stroke-width="1"/>
+    <text x="12" y="16" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">B</text>
+  </g>
+</svg>
