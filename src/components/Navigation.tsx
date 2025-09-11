@@ -1,21 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo, useCallback } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 
-export default function Navigation() {
+const Navigation = memo(() => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100);
-    };
+  const handleScroll = useCallback(() => {
+    const scrolled = window.scrollY > 100;
+    if (scrolled !== isScrolled) {
+      setIsScrolled(scrolled);
+    }
+  }, [isScrolled]);
 
-    window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [handleScroll]);
 
   const navItems = [
     { label: 'Home', href: '/' },
@@ -25,6 +28,10 @@ export default function Navigation() {
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Contact', href: '/contact' },
   ];
+
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(prev => !prev);
+  }, []);
 
   return (
     <nav className={`fixed w-full z-40 transition-all duration-900 ease-[cubic-bezier(0.4,0,0.2,1)] will-change-auto ${
@@ -115,7 +122,7 @@ export default function Navigation() {
               <ThemeToggle />
               <button
                 className="p-2 rounded-lg transition-colors duration-300"
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                onClick={toggleMobileMenu}
               >
                 {isMobileMenuOpen ? (
                   <X className={`h-6 w-6 sm:h-7 sm:w-7 ${isScrolled ? 'text-gray-900 dark:text-gray-100' : 'text-white'}`} />
@@ -146,7 +153,7 @@ export default function Navigation() {
                       } ${
                         location.pathname === item.href ? 'text-red-600 dark:text-red-400' : ''
                       }`}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={toggleMobileMenu}
                     >
                       {item.label}
                     </Link>
@@ -159,7 +166,7 @@ export default function Navigation() {
                           ? 'text-gray-700 hover:text-red-600 dark:text-gray-300 dark:hover:text-red-400' 
                           : 'text-white/90 hover:text-white'
                       }`}
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={toggleMobileMenu}
                     >
                       {item.label}
                     </a>
@@ -181,4 +188,8 @@ export default function Navigation() {
       </div>
     </nav>
   );
-}
+});
+
+Navigation.displayName = 'Navigation';
+
+export default Navigation;

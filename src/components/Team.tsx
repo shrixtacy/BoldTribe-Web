@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, memo, useCallback } from 'react';
 import { Github, Linkedin } from 'lucide-react';
 import AnimatedSection from './AnimatedSection';
+import OptimizedImage from './OptimizedImage';
 import { useStaggeredAnimation } from '../hooks/useScrollAnimation';
 
 interface TeamMember {
@@ -15,10 +16,18 @@ interface TeamMember {
   };
 }
 
-const Team = () => {
+const Team = memo(() => {
   const [hoveredMember, setHoveredMember] = useState<number | null>(null);
   const [leadershipRef, visibleLeadership] = useStaggeredAnimation(2, 150);
   const [teamRef, visibleTeam] = useStaggeredAnimation(6, 100);
+
+  const handleMouseEnter = useCallback((memberIndex: number) => {
+    setHoveredMember(memberIndex);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setHoveredMember(null);
+  }, []);
 
   const leadership: TeamMember[] = [
     {
@@ -101,8 +110,8 @@ const Team = () => {
       <div
         key={`team-${index}`}
         className="group relative transition-all duration-700 ease-out w-full"
-        onMouseEnter={() => setHoveredMember(memberIndex)}
-        onMouseLeave={() => setHoveredMember(null)}
+        onMouseEnter={() => handleMouseEnter(memberIndex)}
+        onMouseLeave={handleMouseLeave}
       >
         <div
           className={`bg-white dark:bg-[#2a2a2a] rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-xl transition-all duration-500 cursor-pointer border-2 h-full ${
@@ -112,7 +121,13 @@ const Team = () => {
           }`}>
           <div className="text-center">
             <div className="relative mb-4 sm:mb-6">
-              <img src={member.image} alt={member.name} className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover border-4 border-white dark:border-gray-800 shadow-lg" />
+              <OptimizedImage 
+                src={member.image} 
+                alt={member.name} 
+                className="w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto object-cover border-4 border-white dark:border-gray-800 shadow-lg"
+                width={96}
+                height={96}
+              />
             </div>
 
             <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
@@ -225,6 +240,8 @@ const Team = () => {
       </div>
     </section>
   );
-};
+});
+
+Team.displayName = 'Team';
 
 export default Team;
