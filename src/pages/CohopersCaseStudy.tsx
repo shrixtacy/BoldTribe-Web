@@ -17,7 +17,7 @@ const CohopersCaseStudy = () => {
       '95% visitor satisfaction rate with streamlined check-in process',
       '50% improvement in security response time with real-time monitoring'
     ],
-    technologies: ['React', 'QR Code', 'Database', 'Security', 'Real-time Monitoring', 'Mobile Integration', 'Node.js', 'PostgreSQL', 'WebRTC', 'JWT Authentication'],
+    technologies: ['React.js', 'React Native', 'Node.js', 'Express.js', 'MySQL', 'AWS', 'Firebase', 'HTML', 'CSS', 'JavaScript'],
     duration: '4 months',
     team_size: 4,
     image: '/team/Screenshot 2025-09-11 100036.png',

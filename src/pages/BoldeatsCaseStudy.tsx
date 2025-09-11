@@ -17,7 +17,7 @@ const BoldeatsCaseStudy = () => {
       '85% vendor retention rate with comprehensive support system',
       '70% reduction in delivery time through route optimization'
     ],
-    technologies: ['React', 'Node.js', 'Maps API', 'Payment Integration', 'Location Services', 'Quality Control', 'MongoDB', 'Stripe API', 'Google Maps', 'Push Notifications'],
+    technologies: ['React.js', 'Node.js', 'Express.js', 'MySQL'],
     duration: '5 months',
     team_size: 5,
     image: '/team/Screenshot 2025-09-11 095942.png',

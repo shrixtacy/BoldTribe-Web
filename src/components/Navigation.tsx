@@ -26,7 +26,6 @@ const Navigation = memo(() => {
     { label: 'About Us', href: '/about' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Case Studies', href: '/case-studies' },
-    { label: 'Contact', href: '/contact' },
   ];
 
   const toggleMobileMenu = useCallback(() => {
@@ -105,7 +104,7 @@ const Navigation = memo(() => {
 
             {/* Theme Toggle & CTA Button */}
             <div className="hidden lg:flex items-center space-x-4 xl:space-x-6">
-              <ThemeToggle />
+              <ThemeToggle isScrolled={isScrolled} />
               <a
                 href="mailto:support@boldtribe.in"
                 className={`px-5 xl:px-6 py-2 xl:py-3 rounded-lg xl:rounded-xl font-semibold text-sm xl:text-base transition-all duration-300 hover:scale-105 hover:shadow-lg ${
@@ -119,7 +118,7 @@ const Navigation = memo(() => {
 
             {/* Mobile Menu Button */}
             <div className="lg:hidden flex items-center space-x-3">
-              <ThemeToggle />
+              <ThemeToggle isScrolled={isScrolled} />
               <button
                 className="p-2 rounded-lg transition-colors duration-300"
                 onClick={toggleMobileMenu}
