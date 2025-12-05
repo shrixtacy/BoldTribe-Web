@@ -1,8 +1,6 @@
 const CACHE_NAME = 'boldtribe-v1';
 const urlsToCache = [
   '/',
-  '/src/index.css',
-  '/src/main.tsx',
   '/Crayon.gif',
   '/team/Boldtribe logo logo.svg',
   '/favicon.ico',
@@ -14,18 +12,36 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then((cache) => {
-        return cache.addAll(urlsToCache);
+        return cache.addAll(urlsToCache).catch((err) => {
+          console.log('Cache addAll error:', err);
+        });
       })
   );
+  self.skipWaiting();
 });
 
-// Fetch event
+// Fetch event - skip caching for development files
 self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+  
+  // Skip caching for Vite dev server files
+  if (url.pathname.includes('/@vite') || 
+      url.pathname.includes('/@react-refresh') ||
+      url.pathname.includes('.tsx') ||
+      url.pathname.includes('.ts') ||
+      url.pathname.includes('node_modules')) {
+    return;
+  }
+
   event.respondWith(
     caches.match(event.request)
       .then((response) => {
         // Return cached version or fetch from network
         return response || fetch(event.request);
+      })
+      .catch((err) => {
+        console.log('Fetch error:', err);
+        return fetch(event.request);
       })
   );
 });
