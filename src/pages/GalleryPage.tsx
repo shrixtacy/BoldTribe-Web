@@ -49,15 +49,7 @@ const GalleryPage = () => {
       likes: 156,
       views: 3210
     },
-    {
-      id: 4,
-      src: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=800',
-      title: 'Blockchain Platform',
-      category: 'Blockchain',
-      description: 'Decentralized trading platform',
-      likes: 203,
-      views: 4560
-    },
+
     {
       id: 5,
       src: 'https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=800',
@@ -140,11 +132,11 @@ const GalleryPage = () => {
       if (scrollContainerRef.current) {
         const container = scrollContainerRef.current;
         const scrollAmount = 2; // Pixels to scroll
-        
+
         // Diagonal scrolling effect
         container.scrollLeft += scrollAmount;
         container.scrollTop += scrollAmount * 0.5;
-        
+
         // Reset scroll when reaching the end
         if (container.scrollLeft >= container.scrollWidth - container.clientWidth) {
           container.scrollLeft = 0;
@@ -194,7 +186,7 @@ const GalleryPage = () => {
             <div className="absolute top-12 right-32 w-12 h-12 bg-red-600 rounded-full"></div>
             <div className="absolute top-24 right-16 w-8 h-8 bg-red-400 rounded-full"></div>
           </div>
-          
+
           {/* Bottom Left Corner Design */}
           <div className="absolute bottom-0 left-0 w-80 h-80 sm:w-96 sm:h-96">
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-red-500/35 via-red-600/20 to-transparent rounded-tr-full"></div>
@@ -202,7 +194,7 @@ const GalleryPage = () => {
             <div className="absolute bottom-16 left-24 w-10 h-10 bg-red-600 rounded-full"></div>
             <div className="absolute bottom-8 left-32 w-6 h-6 bg-red-400 rounded-full"></div>
           </div>
-          
+
 
         </div>
 
@@ -214,7 +206,7 @@ const GalleryPage = () => {
                 <span className="font-medium text-red-700 dark:text-red-300 transition-colors duration-300">Visual Showcase</span>
               </div>
             </AnimatedSection>
-            
+
             <AnimatedSection animation="fadeUp" delay={200}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 Our Creative
@@ -223,13 +215,13 @@ const GalleryPage = () => {
                 </span>
               </h1>
             </AnimatedSection>
-            
+
             <AnimatedSection animation="fadeUp" delay={400}>
               <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8 transition-colors duration-300">
                 Explore our portfolio of stunning designs, innovative solutions, and creative masterpieces.
               </p>
             </AnimatedSection>
-            
+
             <div ref={heroRef} className="flex flex-wrap justify-center items-center gap-6 text-gray-600 dark:text-gray-300 transition-colors duration-300">
               {[
                 { icon: Eye, label: '10K+ Views', index: 0 },
@@ -238,11 +230,10 @@ const GalleryPage = () => {
               ].map((stat, index) => (
                 <div
                   key={index}
-                  className={`flex items-center gap-2 transition-all duration-700 ease-out ${
-                    visibleHero.has(stat.index) 
-                      ? 'opacity-100 translate-y-0' 
+                  className={`flex items-center gap-2 transition-all duration-700 ease-out ${visibleHero.has(stat.index)
+                      ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-4'
-                  }`}
+                    }`}
                 >
                   <stat.icon className="w-5 h-5" />
                   <span>{stat.label}</span>
@@ -259,11 +250,10 @@ const GalleryPage = () => {
           <div className="flex justify-center items-center gap-4">
             <button
               onClick={toggleAutoScroll}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
-                isAutoScrolling
+              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all duration-300 ${isAutoScrolling
                   ? 'bg-red-600 text-white hover:bg-red-700'
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
-              }`}
+                }`}
             >
               {isAutoScrolling ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
               {isAutoScrolling ? 'Pause Auto-Scroll' : 'Start Auto-Scroll'}
@@ -275,7 +265,7 @@ const GalleryPage = () => {
       {/* Animated Scrolling Gallery */}
       <section className="py-20 relative bg-white dark:bg-[#1e1e1e] transition-colors duration-300 overflow-hidden dots-pattern">
         <div className="absolute inset-0 bg-gradient-to-br from-red-500/3 via-red-600/2 to-red-400/3"></div>
-        
+
         <div
           ref={scrollContainerRef}
           className="relative overflow-hidden h-[600px] sm:h-[800px] lg:h-[1000px]"
@@ -301,7 +291,7 @@ const GalleryPage = () => {
                     alt={photo.title}
                     className="w-full h-48 sm:h-64 lg:h-80 object-cover rounded-xl transition-all duration-500 group-hover:scale-110"
                   />
-                  
+
                   {/* Overlay */}
                   <div className="absolute inset-2 bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end">
                     <div className="p-4 text-white">
@@ -363,7 +353,7 @@ const GalleryPage = () => {
                 alt={selectedPhoto.title}
                 className="w-full h-auto max-h-[80vh] object-contain rounded-2xl"
               />
-              
+
               {/* Image Info */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-2xl">
                 <h2 className="text-2xl font-bold text-white mb-2">{selectedPhoto.title}</h2>
@@ -400,7 +390,7 @@ const GalleryPage = () => {
             <div className="absolute top-12 right-24 w-10 h-10 bg-red-600 rounded-full"></div>
             <div className="absolute top-20 right-12 w-6 h-6 bg-red-400 rounded-full"></div>
           </div>
-          
+
           {/* Bottom Left Corner Design */}
           <div className="absolute bottom-0 left-0 w-72 h-72 sm:w-80 sm:h-80">
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-tr from-red-500/25 via-red-600/15 to-transparent rounded-tr-full"></div>
@@ -419,14 +409,14 @@ const GalleryPage = () => {
               Let's bring your vision to life with our creative expertise and innovative solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
+              <a
+                href="/contact"
                 className="bg-red-600 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-700 transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
                 Start Your Project
               </a>
-              <a 
-                href="/case-studies" 
+              <a
+                href="/case-studies"
                 className="border-2 border-red-200 dark:border-red-800/30 text-red-600 dark:text-red-400 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all duration-300"
               >
                 View More Work

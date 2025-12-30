@@ -54,7 +54,6 @@ const ContactPage = () => {
     'Mobile Development',
     'AI Automation',
     'Brand Design',
-    'Blockchain Development',
     'Product Design'
   ];
 
