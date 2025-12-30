@@ -43,17 +43,7 @@ const ServicesPage = () => {
       image: 'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
       formLink: 'https://forms.google.com/brand-design'
     },
-    {
-      icon: Link,
-      title: 'Blockchain Development',
-      subtitle: 'Decentralized Solutions',
-      description: 'Build secure, decentralized applications and smart contracts on blockchain technology for the future of digital transactions.',
-      features: ['Smart Contracts', 'DeFi Solutions', 'NFT Platforms', 'Web3 Integration', 'Cryptocurrency Solutions', 'Blockchain Consulting'],
-      pricing: 'Starting at $12,000',
-      timeline: '8-16 weeks',
-      image: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=600',
-      formLink: 'https://forms.google.com/blockchain-development'
-    },
+
     {
       icon: Smartphone,
       title: 'Mobile Development',
@@ -147,7 +137,7 @@ const ServicesPage = () => {
                 <span className="text-white font-medium">Premium Digital Solutions</span>
               </div>
             </AnimatedSection>
-            
+
             <AnimatedSection animation="fadeUp" delay={200}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 sm:mb-8 leading-tight">
                 <span className="text-red-600 dark:text-red-400">Transform Your Vision Into</span>
@@ -156,24 +146,24 @@ const ServicesPage = () => {
                 </span>
               </h1>
             </AnimatedSection>
-            
+
             <AnimatedSection animation="fadeUp" delay={400}>
               <p className="text-xl sm:text-2xl text-gray-900 dark:text-white/90 max-w-4xl mx-auto leading-relaxed mb-8 sm:mb-12 transition-colors duration-300">
                 Premium digital solutions that transform your business and drive exceptional results.
               </p>
             </AnimatedSection>
-            
+
             <AnimatedSection animation="fadeUp" delay={600}>
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center mb-8 sm:mb-12">
-                <a 
-                  href="/contact" 
+                <a
+                  href="/contact"
                   className="group bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-2xl hover:scale-105 flex items-center gap-3"
                 >
                   <span>Enquire Now</span>
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </a>
-                <a 
-                  href="/case-studies" 
+                <a
+                  href="/case-studies"
                   className="group border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300 flex items-center gap-3"
                 >
                   <span>View Our Work</span>
@@ -181,7 +171,7 @@ const ServicesPage = () => {
                 </a>
               </div>
             </AnimatedSection>
-            
+
             <AnimatedSection animation="fadeUp" delay={800}>
               <div className="flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-red-600 dark:text-red-400">
                 <div className="flex items-center gap-2">
@@ -200,7 +190,7 @@ const ServicesPage = () => {
             </AnimatedSection>
           </div>
         </div>
-        
+
         {/* Scroll Indicator */}
         <AnimatedSection animation="fadeIn" delay={1000} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
           <div className="animate-bounce">
@@ -241,27 +231,23 @@ const ServicesPage = () => {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`group transition-all duration-700 ease-out ${
-                  visibleItems.has(index) 
-                    ? 'opacity-100 translate-y-0' 
+                className={`group transition-all duration-700 ease-out ${visibleItems.has(index)
+                    ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-8'
-                }`}
+                  }`}
                 onMouseEnter={() => setActiveService(index)}
               >
-                <div className={`bg-white dark:bg-[#2a2a2a] rounded-3xl p-8 sm:p-10 shadow-xl transition-all duration-500 border-2 hover:shadow-2xl hover:shadow-red-500/20 hover:scale-105 hover:-rotate-1 ${
-                  activeService === index 
-                    ? 'border-red-500/50 shadow-2xl shadow-red-500/20 scale-105 -rotate-1' 
+                <div className={`bg-white dark:bg-[#2a2a2a] rounded-3xl p-8 sm:p-10 shadow-xl transition-all duration-500 border-2 hover:shadow-2xl hover:shadow-red-500/20 hover:scale-105 hover:-rotate-1 ${activeService === index
+                    ? 'border-red-500/50 shadow-2xl shadow-red-500/20 scale-105 -rotate-1'
                     : 'border-transparent dark:shadow-black/50'
-                }`}>
+                  }`}>
                   <div className="flex items-start gap-6 mb-6">
-                    <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center transition-all duration-300 ${
-                      activeService === index 
-                        ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/30' 
+                    <div className={`w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center transition-all duration-300 ${activeService === index
+                        ? 'bg-gradient-to-br from-red-500 to-red-600 shadow-lg shadow-red-500/30'
                         : 'bg-gray-100 dark:bg-gray-700 group-hover:bg-red-50 dark:group-hover:bg-red-900/30'
-                    }`}>
-                      <service.icon className={`w-8 h-8 sm:w-10 sm:h-10 transition-colors duration-300 ${
-                        activeService === index ? 'text-white' : 'text-gray-600 dark:text-gray-300 group-hover:text-red-600'
-                      }`} />
+                      }`}>
+                      <service.icon className={`w-8 h-8 sm:w-10 sm:h-10 transition-colors duration-300 ${activeService === index ? 'text-white' : 'text-gray-600 dark:text-gray-300 group-hover:text-red-600'
+                        }`} />
                     </div>
                     <div className="flex-1">
                       <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2 transition-colors duration-300">
@@ -291,7 +277,7 @@ const ServicesPage = () => {
                       <p className="text-2xl font-bold text-gray-900 dark:text-gray-100 transition-colors duration-300">{service.pricing}</p>
                       <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors duration-300">{service.timeline}</p>
                     </div>
-                    <a 
+                    <a
                       href={service.formLink}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -324,11 +310,10 @@ const ServicesPage = () => {
             {whyChooseUs.map((feature, index) => (
               <div
                 key={index}
-                className={`text-center transition-all duration-700 ease-out ${
-                  visibleFeatures.has(index) 
-                    ? 'opacity-100 translate-y-0' 
+                className={`text-center transition-all duration-700 ease-out ${visibleFeatures.has(index)
+                    ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-8'
-                }`}
+                  }`}
               >
                 <div className="bg-white dark:bg-[#2a2a2a] rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-red-500/20 transition-all duration-300 hover:scale-105 dark:shadow-black/50">
                   <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
@@ -366,11 +351,10 @@ const ServicesPage = () => {
               {processSteps.map((step, index) => (
                 <div
                   key={index}
-                  className={`relative transition-all duration-700 ease-out ${
-                    visibleProcess.has(index) 
-                      ? 'opacity-100 translate-y-0' 
+                  className={`relative transition-all duration-700 ease-out ${visibleProcess.has(index)
+                      ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-12'
-                  }`}
+                    }`}
                 >
                   <div className={`flex flex-col lg:flex-row items-center ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                     <div className={`w-full lg:w-5/12 ${index % 2 === 0 ? 'lg:pr-12' : 'lg:pl-12'} mb-8 lg:mb-0`}>
@@ -417,14 +401,14 @@ const ServicesPage = () => {
               Let's discuss how our services can transform your vision into reality.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a 
-                href="/contact" 
+              <a
+                href="/contact"
                 className="bg-white text-red-600 px-8 py-4 rounded-2xl font-bold text-lg hover:bg-red-50 transition-all duration-300 hover:shadow-xl hover:scale-105"
               >
                 Get Free Consultation
               </a>
-              <a 
-                href="/case-studies" 
+              <a
+                href="/case-studies"
                 className="border-2 border-white/30 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white/10 transition-all duration-300"
               >
                 View Portfolio

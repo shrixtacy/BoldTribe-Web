@@ -122,7 +122,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 dark:border-gray-800 pt-4 sm:pt-6 transition-colors duration-300">
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
             <p className="text-gray-400 dark:text-gray-500 text-sm sm:text-base mb-3 md:mb-0 transition-colors duration-300">
-              © 2024 BoldTribe. All rights reserved.
+              © 2024 Boldtribe Innovation Private Limited. All rights reserved.
             </p>
             <div className="flex flex-col sm:flex-row space-y-1 sm:space-y-0 sm:space-x-4 lg:space-x-6 text-sm sm:text-base">
               <Link to="/privacy-policy" className="text-gray-400 dark:text-gray-500 hover:text-red-400 transition-colors">
